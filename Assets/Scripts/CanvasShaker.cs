@@ -22,12 +22,9 @@ public class CanvasShaker : MonoBehaviour{
 
     IEnumerator ShakeCoroutine(float magnitude, float duration){
 
-        Vector3 originalPosition = transform.position;
-
         float timeElapsed = 0f;
         while(timeElapsed < duration){
 
-            transform.position = originalPosition;
             panel.transform.position = originalPosition
                 + Vector3.Normalize(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)))
                 * Random.Range(-magnitude, magnitude) * (duration - timeElapsed);
@@ -36,7 +33,7 @@ public class CanvasShaker : MonoBehaviour{
             yield return null;
         }
 
-        transform.position = originalPosition;
+        //transform.position = originalPosition;
         panel.transform.position = originalPosition;
     }
 }
