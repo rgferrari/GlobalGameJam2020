@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class StoryController : MonoBehaviour
-{
+public class StoryController : MonoBehaviour{
+
     public static StoryController instance;
 
     /*
@@ -17,25 +17,30 @@ public class StoryController : MonoBehaviour
         DontDestroyOnLoad(instance);
     }
 
-    public void SymbolWasMatched()
-    {
+    public void SymbolWasMatched(){
         Debug.Log("Symbol was matched");
+
+        // Actions
         GameStatusController.instance.remainingSlots--;
         ButtonSpawner.instance.ButtonPressed(true);
     }
 
-    public void SymbolWasMisMatched()
-    {
+    public void SymbolWasMisMatched(){
         Debug.Log("Symbol was mismatched");
+
+        // Actions
+        CanvasShaker.instance.Shake(50f, 0.5f);
     }
 
-    public void ReachedWinState()
-    {
+    public void ReachedWinState(){
         Debug.Log("Reached win state");
+
+        // Actions
     }
 
-    public void ReachedLoseState()
-    {
+    public void ReachedLoseState(){
         Debug.Log("Reached lose state");
+
+        // Actions
     }
 }

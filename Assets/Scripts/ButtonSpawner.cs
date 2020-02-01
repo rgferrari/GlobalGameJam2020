@@ -40,8 +40,12 @@ public class ButtonSpawner : MonoBehaviour{
     }
 
     private void Update() {
-        if(Input.anyKeyDown){
+        if(Input.GetKeyDown(KeyCode.Space)){
             StoryController.instance.SymbolWasMatched();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            StoryController.instance.SymbolWasMisMatched();
         }
     }
 
