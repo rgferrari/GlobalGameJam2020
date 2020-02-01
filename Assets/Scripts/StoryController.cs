@@ -2,7 +2,7 @@
 
 public class StoryController : MonoBehaviour
 {
-    public static StoryController _instance;
+    public static StoryController instance;
 
     /*
     public StoryController Instance()
@@ -13,14 +13,15 @@ public class StoryController : MonoBehaviour
     */
 
     private void Awake() {
-        _instance = _instance ? _instance : this;
-        DontDestroyOnLoad(_instance);
+        instance = instance ? instance : this;
+        DontDestroyOnLoad(instance);
     }
 
     public void SymbolWasMatched()
     {
         Debug.Log("Symbol was matched");
-        ButtonSpawner._instance.ButtonPressed(true);
+        GameStatusController.instance.remainingSlots--;
+        ButtonSpawner.instance.ButtonPressed(true);
     }
 
     public void SymbolWasMisMatched()
