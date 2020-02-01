@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 7d8cbe874644a4d53bd037124fe8f854
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PragmataPro
+  fontNames:
+  - PragmataPro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0776922148d17493198db07878378909, type: 3}
+  - {fileID: 12800000, guid: 2978d02c187704d8a8832d14544523fe, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

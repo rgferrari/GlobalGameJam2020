@@ -5,9 +5,15 @@ using UnityEngine;
 public class CanvasShaker : MonoBehaviour{
 
     public static CanvasShaker instance;
+    public Transform panel;
+    Vector3 originalPosition; 
+
     private void Awake() {
         instance = instance ? instance : this;
         DontDestroyOnLoad(instance);
+
+        panel = panel ? panel : transform;
+        originalPosition = panel.transform.position;
     }
 
     public void Shake(float magnitude, float duration){
@@ -21,7 +27,8 @@ public class CanvasShaker : MonoBehaviour{
         float timeElapsed = 0f;
         while(timeElapsed < duration){
 
-            transform.position = originalPosition
+            transform.position = originalPosition;
+            panel.transform.position = originalPosition
                 + Vector3.Normalize(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)))
                 * Random.Range(-magnitude, magnitude) * (duration - timeElapsed);
 
@@ -30,5 +37,6 @@ public class CanvasShaker : MonoBehaviour{
         }
 
         transform.position = originalPosition;
+        panel.transform.position = originalPosition;
     }
 }
