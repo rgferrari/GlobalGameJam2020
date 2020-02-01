@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.56078434}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1750,18 +1750,10 @@ MonoBehaviour:
   infoText: {fileID: 1717276941}
   lobbyPanel: {fileID: 1585600329}
   spritesToChooseFrom:
-  - {fileID: 21300000, guid: 4527e92f48cc5410fb90f0f995c790f9, type: 3}
-  - {fileID: 21300000, guid: d705812d924c34b499e0861df76e7615, type: 3}
-  - {fileID: 21300000, guid: 528e17339f4bf4939ac3e206555dfc91, type: 3}
-  - {fileID: 21300000, guid: 5ea82e73723994ff68a369139df06485, type: 3}
-  - {fileID: 21300000, guid: 82be165efe77041c8bde729de9c3e19c, type: 3}
-  - {fileID: 21300000, guid: d55650fbc682f4aa1998d95136cbae98, type: 3}
-  - {fileID: 21300000, guid: 07b41cb2ad30947f2933a210ed8d0a04, type: 3}
-  - {fileID: 21300000, guid: 297926b4e717946fa88845a793fe3270, type: 3}
-  - {fileID: 21300000, guid: 0262ce1af30c042a8bce73a48908b73d, type: 3}
-  - {fileID: 21300000, guid: 27af39ad349db4ec4b949cdfd9b6c1fd, type: 3}
-  - {fileID: 21300000, guid: 261c0d161d2cb4beab2f47827c4368ef, type: 3}
-  - {fileID: 21300000, guid: 409152a9de6bc452b8a620642e9ac959, type: 3}
+  - {fileID: 21300000, guid: 57047506244c1428ba630a73ddc5ac06, type: 3}
+  - {fileID: 21300000, guid: 0decca71dcd8b437c81c65d8be9fcfde, type: 3}
+  - {fileID: 21300000, guid: 274e843d8dc23476dbf8a27ba3f3bc7c, type: 3}
+  - {fileID: 21300000, guid: 64e94405b8468407697ea1f9d1c8bfbe, type: 3}
   playerImages:
   - {fileID: 295017241}
   - {fileID: 2027674288}
@@ -1822,7 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.8652289, a: 0.56078434}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2006,6 +1998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1760197193}
   - component: {fileID: 1760197196}
+  - component: {fileID: 1760197191}
   - component: {fileID: 1760197192}
   - component: {fileID: 1760197190}
   - component: {fileID: 1760197189}
@@ -2057,6 +2050,18 @@ MonoBehaviour:
   remainingTextPrefix: 'Slots left: '
   timer: 30
   remainingSlots: 30
+--- !u!114 &1760197191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760197188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fea51a8aea64ab39d9064ffb6222ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1760197192
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,35 +25,16 @@ public class ButtonSpawner : MonoBehaviour{
         bottomImagePosition = imageHolder1.transform.position - (imageHolder2.transform.position - imageHolder1.transform.position);
     }
 
-    public void ButtonPressed(){
+    public void ButtonPressed() {
 
         currentPlayer = Random.Range(0, icons.Length);
-
-//<<<<<<< Updated upstream
-            ChangeImage();
-        //}
-    }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Space)){
-            StoryController.instance.SymbolWasMatched();
-        }
-//<<<<<<< HEAD
-
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            StoryController.instance.SymbolWasMisMatched();
-        }
-//=======
-//=======
-        if(imageHolderFlag == 1){
+        if (imageHolderFlag == 1) {
             imageHolder1.sprite = icons[currentPlayer];
-        }else if(imageHolderFlag == 2){
+        } else if (imageHolderFlag == 2) {
             imageHolder2.sprite = icons[currentPlayer];
         }
 
         ChangeImage();
-//>>>>>>> Stashed changes
-//>>>>>>> chi
     }
 
     public void ChangeImage(){
