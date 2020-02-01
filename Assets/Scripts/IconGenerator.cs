@@ -32,11 +32,33 @@ public class IconGenerator : MonoBehaviour
 
     private void GenerateIcon()
     {
-        for (int i=0; i<9; i++) 
+        int cornerImage = Random.Range(0, tokens.Count);
+        int sideImage = Random.Range(0, tokens.Count);
+        int middleImage = Random.Range(0, tokens.Count);
+
+        //Destroy children before instantiating new ones
+        foreach (GameObject quadrant in quadrants)
         {
-            GameObject token = tokens[Random.Range(0, 3)];
+            foreach (Transform child in quadrant.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        //Instantiate the objects
+        foreach (GameObject quadrant in quadrants) 
+        {
+            GameObject token = tokens[Random.Range(0, tokens.Count)];
+
+            if (quadrant.name == "TL" || quadrant.name == "TR" || quadrant.name == "BL" || quadrant.name == "BR")
+                token = tokens[cornerImage];
+            else if (quadrant.name == "ML" || quadrant.name == "MR" || quadrant.name == "TC" || quadrant.name == "BC")
+                token = tokens[sideImage];
+            else if (quadrant.name == "MC")
+                token = tokens[middleImage];
+
             var createImage = Instantiate(token) as GameObject;
-            createImage.transform.SetParent(quadrants[i].transform, false);
+            createImage.transform.SetParent(quadrant.transform, false);
         }
     }
 }
