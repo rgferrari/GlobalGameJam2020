@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ButtonSpawner : MonoBehaviour{
 
     public Image imageHolder;
-
+    public float shakeMagnitude = 3f;
     public Sprite[] icons;
 
     public void ButtonPressed(bool correctButtonPressed){
@@ -27,14 +27,14 @@ public class ButtonSpawner : MonoBehaviour{
 
         Vector3 originalPosition = transform.position;
 
-        float timeElapsed = 0f;
-        float duration = 1f;
+        float timeElapsed = 0.3f;
+        float duration = 0.3f;
 
-        while(timeElapsed < duration){
+        while(timeElapsed > 0f){
 
-            transform.position = transform.position + Vector3.Normalize(new Vector3(Random.Range(-1,1), Random.Range(-1, 1), Random.Range(-1, 1)));
+            transform.position = originalPosition + Vector3.Normalize(new Vector3(Random.Range(-1,1), Random.Range(-1, 1), Random.Range(-1, 1))) * (timeElapsed/duration) * shakeMagnitude;
 
-            timeElapsed += Time.deltaTime;
+            timeElapsed -= Time.deltaTime;
             yield return null;
         }
 
