@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 813522c108b1a4a92a5b36ae807fc5aa
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PragmataPro Mono
+  fontNames:
+  - PragmataPro Mono
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 75121b147885940b09f4376a8f02c315, type: 3}
+  - {fileID: 12800000, guid: 1e02a0072800d427fbcb9199f628feff, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

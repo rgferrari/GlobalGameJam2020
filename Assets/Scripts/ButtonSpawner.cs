@@ -7,8 +7,9 @@ public class ButtonSpawner : MonoBehaviour{
     public static ButtonSpawner instance;
 
     public Image imageHolder1, imageHolder2;
+    public int currentPlayer;
     int imageHolderFlag = 1;
-    public Vector3 topImagePosition, middleImagePosition, bottomImagePosition;
+    Vector3 topImagePosition, middleImagePosition, bottomImagePosition;
 
     //public float shakeMagnitude = 3f;
     public Sprite[] icons;
@@ -22,19 +23,13 @@ public class ButtonSpawner : MonoBehaviour{
         topImagePosition = imageHolder2.transform.position;
         middleImagePosition = imageHolder1.transform.position;
         bottomImagePosition = imageHolder1.transform.position - (imageHolder2.transform.position - imageHolder1.transform.position);
-        imageHolder1.sprite = icons[Random.Range(0, icons.Length)]; // Init
-        imageHolder2.sprite = icons[Random.Range(0, icons.Length)]; // Init
     }
 
-    public void ButtonPressed(bool correctButtonPressed){
-        if(correctButtonPressed){
+    public void ButtonPressed(){
 
-            if(imageHolderFlag == 1){
-                imageHolder1.sprite = icons[Random.Range(0, icons.Length)];
-            }else if(imageHolderFlag == 2){
-                imageHolder2.sprite = icons[Random.Range(0, icons.Length)];
-            }
+        currentPlayer = Random.Range(0, icons.Length);
 
+<<<<<<< Updated upstream
             ChangeImage();
         }
     }
@@ -43,6 +38,15 @@ public class ButtonSpawner : MonoBehaviour{
         if(Input.anyKeyDown){
             StoryController.instance.SymbolWasMatched();
         }
+=======
+        if(imageHolderFlag == 1){
+            imageHolder1.sprite = icons[currentPlayer];
+        }else if(imageHolderFlag == 2){
+            imageHolder2.sprite = icons[currentPlayer];
+        }
+
+        ChangeImage();
+>>>>>>> Stashed changes
     }
 
     public void ChangeImage(){
