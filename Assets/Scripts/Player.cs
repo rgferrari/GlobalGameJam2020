@@ -23,6 +23,6 @@ public class Player
         rgb.Add((byte)rand.Next(0, 255));
         rgb.Add((byte)rand.Next(0, 255));
         rgb.Add((byte)rand.Next(0, 255));
-        UnityEngine.Debug.Log("Player: " + playerID + "created");
+        UnityEngine.Debug.Log("Player: " + playerID + " created");
     }
 }
