@@ -7,7 +7,10 @@ namespace controllers
 {
     public class StoryController : MonoBehaviour
     {
-        private GameObject _chickenPrefab;
+        private GameObject _motherCluckerPrefab;
+        private GameObject _lankyPrefab;
+        private GameObject _cluckingtonPrefab;
+        private GameObject _flambeauPrefab;
         private GameObject _firePrefab;
         private GameObject _backgroundPrefab;
         private List<Transform> _fires;
@@ -23,9 +26,18 @@ namespace controllers
         [Inject]
         private static StoryController _instance;
 
-        public void Init(GameObject chickenPrefab, GameObject firePrefab, GameObject backgroundPrefab)
+        public void Init(
+            GameObject motherCluckerPrefab, 
+            GameObject lankyPrefab,
+            GameObject cluckingtonPrefab,
+            GameObject flambeauPrefab,
+            GameObject firePrefab, 
+            GameObject backgroundPrefab)
         {
-            _chickenPrefab = chickenPrefab;
+            _motherCluckerPrefab = motherCluckerPrefab;
+            _lankyPrefab = lankyPrefab;
+            _cluckingtonPrefab = cluckingtonPrefab;
+            _flambeauPrefab = flambeauPrefab;
             _firePrefab = firePrefab;
             _backgroundPrefab = backgroundPrefab;
         }
@@ -90,7 +102,7 @@ namespace controllers
         void SpawnChicken()
         {
             // Debug.Log("Spawned a chicken");
-            var newChicken = Instantiate(_chickenPrefab, new Vector3(-4, 0, 0), Quaternion.identity);
+            var newChicken = Instantiate(_motherCluckerPrefab, new Vector3(-4, 0, 0), Quaternion.identity);
             var chickenController = newChicken.GetComponent<MobController>();
             _chickens.Add(chickenController);
         }
