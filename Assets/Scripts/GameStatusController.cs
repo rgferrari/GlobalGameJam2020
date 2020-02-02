@@ -46,16 +46,22 @@ public class GameStatusController : MonoBehaviour{
 
         // Active timer
         timer -= Time.deltaTime;
-        countdownText.text = countdownTextPrefix + (int)timer;
+
+        // Integer
+        //countdownText.text = countdownTextPrefix + (int)timer;
+
+        // 1-digit decimal
+        countdownText.text = countdownTextPrefix + (float)((int)(timer * 10f) / 10f);
         remainingSlotsText.text = remainingTextPrefix + remainingSlots;
 
-        if(timer < 10 && countdown){
-            countdownText.color = Color.red;
-            countdownText.text = countdownTextPrefix + (float)((int)(timer * 10f)/10f);
+        if ((int)(timer * 10f) % 10 == 0) {
+            countdownText.text = countdownTextPrefix + (float)((int)(timer * 10f) / 10f) + ".0";
+        }
 
-            if( (int)(timer * 10f) % 10 == 0){
-                countdownText.text = countdownTextPrefix + (float)((int)(timer * 10f) / 10f) + ".0";
-            }
+        if (timer < 10 && countdown){
+            countdownText.color = Color.red;
+            //countdownText.text = countdownTextPrefix + (float)((int)(timer * 10f)/10f);
+
         }
 
         // Timer reached - game over
