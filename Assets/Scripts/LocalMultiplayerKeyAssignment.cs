@@ -28,7 +28,7 @@ public class LocalMultiplayerKeyAssignment : MonoBehaviour{
 
         Event e = Event.current;
         if(e.type == EventType.KeyDown && e.isKey && e.keyCode.ToString() != "None"){
-
+            FindObjectOfType<AudioManager>().Play("hit"); // audio confirmation of key assignment
             // Ignores Escape Key
             if (e.keyCode.ToString() == "Escape")
                 return;
