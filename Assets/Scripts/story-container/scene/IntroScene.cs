@@ -33,11 +33,14 @@ namespace scene
 
     void Update()
     {
+            /*
       if (Input.anyKey)
       {
         StopAllCoroutines();
         Debug.Log("Load next scene, or something");
+        
       }
+      */
     }
 
     IEnumerator SpaceDebris(GameObject prefab, float frequency, float startScale, float endScale, float speed, float transparency, float rotate)
