@@ -12,7 +12,13 @@ public class GameStatusController : MonoBehaviour{
     public Text countdownText;
     public Text remainingSlotsText;
     public Text gameStatusText;
+
+    [Multiline]
+    [TextArea]
     public string countdownTextPrefix = "Countdown: ";
+
+    [Multiline]
+    [TextArea]
     public string remainingTextPrefix = "Remaining Slots: ";
     bool countdown = false;
 
@@ -42,6 +48,15 @@ public class GameStatusController : MonoBehaviour{
         timer -= Time.deltaTime;
         countdownText.text = countdownTextPrefix + (int)timer;
         remainingSlotsText.text = remainingTextPrefix + remainingSlots;
+
+        if(timer < 10 && countdown){
+            countdownText.color = Color.red;
+            countdownText.text = countdownTextPrefix + (float)((int)(timer * 10f)/10f);
+
+            if( (int)(timer * 10f) % 10 == 0){
+                countdownText.text = countdownTextPrefix + (float)((int)(timer * 10f) / 10f) + ".0";
+            }
+        }
 
         // Timer reached - game over
         if(timer < 0 && countdown){

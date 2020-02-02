@@ -6,7 +6,7 @@ using DG.Tweening;
 public class LogicController : MonoBehaviour{
 
     public static LogicController instance;
-    public CanvasGroup mainGamePanel;
+    public CanvasGroup lobbyPanel, mainGamePanel;
     public int penaltyAmount = 3;
     [HideInInspector]
     public bool gameStart = false;
@@ -20,6 +20,8 @@ public class LogicController : MonoBehaviour{
     private void Awake() {
         instance = instance ? instance : this;
         DontDestroyOnLoad(instance);
+        lobbyPanel.gameObject.SetActive(true);
+        mainGamePanel.gameObject.SetActive(false);
     }
 
     public void StartMainGame() {
@@ -50,13 +52,14 @@ public class LogicController : MonoBehaviour{
     }
 
     public void ReachedWinState() {
-        GameStatusController.instance.UpdateGameStatusText("Win!");
+        GameStatusController.instance.UpdateGameStatusText("You win!");
         GameStatusController.instance.StopCountdown();
         StoryController.instance.ReachedWinState();
     }
 
     public void ReachedLoseState() {
-        GameStatusController.instance.UpdateGameStatusText("Lose!");
+        GameStatusController.instance.UpdateGameStatusText("You lose!");
+        gameStart = false;
         StoryController.instance.ReachedLoseState();
     }
 }
