@@ -38,10 +38,13 @@ public class UserInputController : MonoBehaviour{
                     // If it matches the current button
                     if(ButtonSpawner.instance.currentPlayer == i){
                         LogicController.instance.SymbolWasMatched();
-                    }else{
+                        FindObjectOfType<AudioManager>().Play("hit"); // sound if player hits
+                    }
+                    else{
 
                         // Otherwise it is a mismatch
                         LogicController.instance.SymbolWasMisMatched();
+                        FindObjectOfType<AudioManager>().Play("miss"); // sound if player misses
                     }
                 }
             }

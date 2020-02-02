@@ -29,6 +29,7 @@ namespace scene
     void Start()
     {
       StartCoroutine(FixedSpeedOnVector(2f, ship, shipMount.position - ship.position));
+      FindObjectOfType<AudioManager>().Play("ship_rumble");
       LaunchDebris(starfieldPrefab, 1f, 0.5f, 0.5f, 0.5f, 0f);
       StartCoroutine(SpaceDebris(starfieldPrefab, 20f, 1f, 0.5f, 0.5f, 0.5f, 0f));
       StartCoroutine(SpaceDebris(rockPrefab, 4f, 1f, 0.1f, 5f, 1f, 1f));

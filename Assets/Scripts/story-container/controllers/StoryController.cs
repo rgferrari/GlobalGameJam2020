@@ -13,22 +13,13 @@ namespace controllers
         private List<Transform> _fires;
         private List<MobController> _chickens;
         private BackgroundController _background;
+        private Vector2 spawnTopLeft = new Vector2(-8f, 4f); 
+        private Vector2 spawnBottomRight = new Vector2(8f, -1f); 
         private float _xBounds = 5f;
         private float _yBounds = 3f;
-    
+        
         [Inject]
         private static StoryController _instance;
-    
-        // Start is called before the first frame update
-        void Start()
-        {
-            _fires = new List<Transform>();
-            _chickens = new List<MobController>();
-            // _background = _backgroundPrefab.GetComponent<BackgroundController>();
-            SpawnBackground();
-            SpawnFire();
-            SpawnChicken();
-        }
 
         public void Init(GameObject chickenPrefab, GameObject firePrefab, GameObject backgroundPrefab)
         {
@@ -46,16 +37,6 @@ namespace controllers
             return _instance;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            // PH
-            if (Input.GetKeyDown(KeyCode.Q)) SymbolWasMatched();
-            if(Input.GetKeyDown(KeyCode.P)) SymbolWasMisMatched();
-            if(Input.GetKeyDown(KeyCode.T)) ReachedWinState();
-            if(Input.GetKeyDown(KeyCode.Y)) ReachedLoseState();
-        }
-
         public void SymbolWasMatched()
         {
             // Debug.Log("Symbol was matched");
@@ -68,6 +49,15 @@ namespace controllers
         {
             Debug.Log("Symbol was mismatched");
             SpawnFire();
+        }
+
+        public void StartStory()
+        {
+            _fires = new List<Transform>();
+            _chickens = new List<MobController>();
+            SpawnBackground();
+            SpawnFire();
+            SpawnChicken();
         }
 
         public void ReachedWinState()
@@ -134,8 +124,8 @@ namespace controllers
 
         private Vector2 RandomSpawnPoint()
         {
-            float x = Range(-_xBounds, _xBounds);
-            float y = Range(-_yBounds, _yBounds);
+            float x = Range(spawnTopLeft.x, spawnBottomRight.x);
+            float y = Range(spawnBottomRight.y, spawnTopLeft.y);
             return new Vector2(x, y);
         }
     }
