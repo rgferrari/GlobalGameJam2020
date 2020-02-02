@@ -20,6 +20,11 @@ namespace scene
 
     public float jitterFactor;
     public Vector2 spawnWindow;
+
+        [Header("Added by Chi")]
+        public float cameraShakeDuration = 1f;
+        public float cameraShakeMagnitude = 5f;
+        public Transform shipEndPoint;
     
     void Start()
     {
@@ -203,5 +208,24 @@ namespace scene
     {
       return (end.transform.position - start.transform.position).magnitude / speed;
     }
+
+        public void Crash(){
+            StartCoroutine(_Crash());
+        }
+
+        public IEnumerator _Crash(){
+            print("crashing");
+            float _t = 0f;
+            Vector3 originalCamPosition = Camera.main.transform.position;
+
+            while(_t < cameraShakeDuration){
+                yield return null;
+                _t += Time.deltaTime;
+
+                Camera.main.transform.position += Vector3.Normalize(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f))) * cameraShakeMagnitude * (1 - _t/cameraShakeDuration);
+                
+            }
+            Camera.main.transform.position = originalCamPosition;
+        }
   }
 }
