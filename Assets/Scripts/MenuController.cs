@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour{
 
     public GameObject splashScreen;
@@ -37,8 +38,8 @@ public class MenuController : MonoBehaviour{
         gameTitleFinalPosition = gameTitle.transform.position;
         anykeyPromptFinalPosition = anykeyPrompt.transform.position;
 
-        gameTitle.transform.position -= Vector3.right * 500;
-        anykeyPrompt.transform.position -= Vector3.right * 500;
+        gameTitle.transform.position -= Vector3.right * 1500;
+        anykeyPrompt.transform.position -= Vector3.right * 1500;
 
         yield return new WaitForSeconds(4.5f);
         gameTitle.transform.DOMove(gameTitleFinalPosition, 2f).SetEase(Ease.OutExpo);
@@ -56,7 +57,7 @@ public class MenuController : MonoBehaviour{
         lobby.gameObject.SetActive(true);
         lobby.alpha = 0f;
         lobby.DOFade(1f, 0.3f);
-
+        /*
         float _t = 0f;
         while(true){
             yield return null;
@@ -72,10 +73,14 @@ public class MenuController : MonoBehaviour{
             if (_t > duration)
                 break;
         }
-
-        introScene.Crash();
+        */
+        //SceneManager.LoadScene("Integration");
+        //introScene.Crash();
     }
 
+    public void StartGame(){
+        SceneManager.LoadScene("Integration");
+    }
 
     IEnumerator AnykeyFlash(){
         while(true){
