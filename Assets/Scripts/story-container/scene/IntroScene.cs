@@ -90,7 +90,7 @@ namespace scene
       rend.color = transparent;
       var fadedIn = new Color(1, 1, 1, transparency);
       var timer = 0f;
-      Debug.Log("Fade in");
+      // Debug.Log("Fade in");
       while (timer < fadeLength)
       {
         timer += Time.fixedDeltaTime;
@@ -102,7 +102,7 @@ namespace scene
 
     IEnumerator FadeOut(float fadeLength, SpriteRenderer rend)
     {
-      Debug.Log("Fade out");
+      // Debug.Log("Fade out");
       var fadedIn = rend.color;
       var fadedOut = new Color(1, 1, 1, 0f);
       var timer = 0f;
@@ -168,7 +168,7 @@ namespace scene
 
     IEnumerator Rotate(float initAngle, float tumbleSpeed, Transform actor)
     {
-      Debug.Log("Rotating");
+      // Debug.Log("Rotating");
       var sprite = actor.GetChild(0).transform;
       sprite.Rotate(Vector3.forward, Jitter(initAngle));
       var tumble = Random.Range(0f, 1f) > 0.5f? Jitter(tumbleSpeed) : -Jitter(tumbleSpeed);
