@@ -38,7 +38,7 @@ public class UserInputController : MonoBehaviour{
                     // If it matches the current button
                     if(ButtonSpawner.instance.currentPlayer == i){
                         LogicController.instance.SymbolWasMatched();
-                        FindObjectOfType<AudioManager>().Play("hit"); // sound if player hits
+                        //FindObjectOfType<AudioManager>().Play("hit"); // sound if player hits
                     }
                     else{
 
