@@ -30,9 +30,6 @@ public class LogicController : MonoBehaviour{
     }
 
     public void SymbolWasMatched() {
-        //Debug.Log("Symbol was matched");
-
-        // Actions
         GameStatusController.instance.remainingSlots--;
         ButtonSpawner.instance.ButtonPressed();
 
@@ -44,9 +41,6 @@ public class LogicController : MonoBehaviour{
     }
 
     public void SymbolWasMisMatched() {
-        //Debug.Log("Symbol was mismatched");
-
-        // Actions
         GameStatusController.instance.remainingSlots += penaltyAmount;
         ButtonSpawner.instance.ButtonPressed();
         PenaltyController.instance.TriggerPenalty(penaltyAmount, 0.3f);
@@ -56,17 +50,12 @@ public class LogicController : MonoBehaviour{
     }
 
     public void ReachedWinState() {
-        //Debug.Log("Reached win state");
-
-        // Actions
         GameStatusController.instance.UpdateGameStatusText("Win!");
+        GameStatusController.instance.StopCountdown();
         StoryController.instance.ReachedWinState();
     }
 
     public void ReachedLoseState() {
-        //Debug.Log("Reached lose state");
-
-        // Actions
         GameStatusController.instance.UpdateGameStatusText("Lose!");
         StoryController.instance.ReachedLoseState();
     }

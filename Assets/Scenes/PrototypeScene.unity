@@ -2112,12 +2112,7 @@ MonoBehaviour:
   imageHolder1: {fileID: 93707570}
   imageHolder2: {fileID: 1675963659}
   currentPlayer: 0
-  icons:
-  - {fileID: 21300000, guid: 4527e92f48cc5410fb90f0f995c790f9, type: 3}
-  - {fileID: 21300000, guid: d705812d924c34b499e0861df76e7615, type: 3}
-  - {fileID: 21300000, guid: 528e17339f4bf4939ac3e206555dfc91, type: 3}
-  - {fileID: 21300000, guid: 5ea82e73723994ff68a369139df06485, type: 3}
-  - {fileID: 21300000, guid: 82be165efe77041c8bde729de9c3e19c, type: 3}
+  icons: []
 --- !u!114 &1760197190
 MonoBehaviour:
   m_ObjectHideFlags: 0

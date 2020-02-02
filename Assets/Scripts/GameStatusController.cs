@@ -7,7 +7,11 @@ public class GameStatusController : MonoBehaviour{
 
     public static GameStatusController instance;
 
-    public Text countdownText, remainingSlotsText, gameStatusText;
+    [Header("Handles countdown, remaining slots, and game states")]
+
+    public Text countdownText;
+    public Text remainingSlotsText;
+    public Text gameStatusText;
     public string countdownTextPrefix = "Countdown: ";
     public string remainingTextPrefix = "Remaining Slots: ";
     bool countdown = false;
@@ -24,6 +28,10 @@ public class GameStatusController : MonoBehaviour{
 
     public void StartCountdown(){
         countdown = true;
+    }
+
+    public void StopCountdown(){
+        countdown = false;
     }
 
     private void Update() {

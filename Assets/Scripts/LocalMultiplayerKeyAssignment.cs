@@ -8,6 +8,8 @@ using DG.Tweening;
 
 public class LocalMultiplayerKeyAssignment : MonoBehaviour{
 
+    [Header("Assigning keys")]
+
     public Text instructionText, infoText;
     public CanvasGroup lobbyPanel;
     public Sprite[] spritesToChooseFrom;
@@ -94,11 +96,21 @@ public class LocalMultiplayerKeyAssignment : MonoBehaviour{
     // Assigning player keys
     private void Update() {
 
+        /*
+        if(Input.anyKeyDown){
+            foreach (KeyCode kcode in System.Enum.GetValues(typeof(KeyCode))) {
+                //do something with kcode
+                if(Input.GetKeyDown(kcode)){
+                    print(kcode);
+                }
+            }
+        }
+        /*
         System.Array values = System.Enum.GetValues(typeof(KeyCode));
         foreach (KeyCode code in values) {
             if (Input.GetKeyDown(code)) { print(System.Enum.GetName(typeof(KeyCode), code)); }
         }
-
+        */
 
         switch(currentPlayer){
             case 1:

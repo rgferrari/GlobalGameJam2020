@@ -8,6 +8,8 @@ public class PenaltyController : MonoBehaviour{
 
     public static PenaltyController instance;
 
+    [Header("Handles UI animation if mismatches")]
+
     public Transform gameStatusPanel;
     public GameObject penaltyTextPrefab;
 

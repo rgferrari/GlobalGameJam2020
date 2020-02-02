@@ -8,6 +8,8 @@ public class UserInputController : MonoBehaviour{
 
     public static UserInputController instance;
 
+    [Header("User inputs are handled here")]
+
     public KeyCode[] playerKeyCode = new KeyCode[4];
     public string[] playerKeyCodeStringBased = new string[4];
 
