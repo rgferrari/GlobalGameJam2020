@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: e1b50dbb01314c9cbc7f4af6fa0703f2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - background: {fileID: 21300000, guid: 6bcc27fab9fbc4e4082c63c0138a5a24, type: 3}
+  - starfield: {fileID: 21300000, guid: 64e0836b189ac42859712fbc4d67ddd6, type: 3}
+  - shootingStar: {fileID: 21300000, guid: 13373843dfd614a4fb1d9ae889e0588a, type: 3}
+  - rock: {fileID: 21300000, guid: 362537d7c3f5b4ce797234d60574c295, type: 3}
+  - swirl: {fileID: 21300000, guid: c98af8e3718d944318e47d64213add5e, type: 3}
+  - skyMount: {instanceID: 0}
+  - shipMount: {instanceID: 0}
+  - vanishingPoint: {instanceID: 0}
+  - nearClipPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
