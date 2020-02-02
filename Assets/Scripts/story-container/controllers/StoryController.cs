@@ -13,9 +13,11 @@ namespace controllers
         private List<Transform> _fires;
         private List<MobController> _chickens;
         private BackgroundController _background;
+        private Vector2 spawnTopLeft = new Vector2(-8f, 4f); 
+        private Vector2 spawnBottomRight = new Vector2(8f, -1f); 
         private float _xBounds = 5f;
         private float _yBounds = 3f;
-    
+        
         [Inject]
         private static StoryController _instance;
 
@@ -122,8 +124,8 @@ namespace controllers
 
         private Vector2 RandomSpawnPoint()
         {
-            float x = Range(-_xBounds, _xBounds);
-            float y = Range(-_yBounds, _yBounds);
+            float x = Range(spawnTopLeft.x, spawnBottomRight.x);
+            float y = Range(spawnBottomRight.y, spawnTopLeft.y);
             return new Vector2(x, y);
         }
     }
