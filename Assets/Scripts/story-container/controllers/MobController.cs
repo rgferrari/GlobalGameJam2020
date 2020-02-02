@@ -96,6 +96,7 @@ namespace controllers
             cloud.transform.SetParent(StoryController.Instance().transform);
             _goal.GetComponent<FlameController>().Extinguish();
             _goal = null;
+            FindObjectOfType<AudioManager>().Play("steam_hiss");
         }
 
         void Wander()

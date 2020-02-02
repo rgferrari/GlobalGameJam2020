@@ -26,6 +26,7 @@ public class LogicController : MonoBehaviour{
     }
 
     public void StartMainGame() {
+        FindObjectOfType<AudioManager>().Play("interior_loop"); // abient music
         mainGamePanel.gameObject.SetActive(true);
         mainGamePanel.alpha = 0f;
         mainGamePanel.DOFade(1f, 0.5f);
@@ -53,12 +54,14 @@ public class LogicController : MonoBehaviour{
     }
 
     public void ReachedWinState() {
+        FindObjectOfType<AudioManager>().Play("winner_fanfare"); // win sound
         GameStatusController.instance.UpdateGameStatusText("You win!");
         GameStatusController.instance.StopCountdown();
         StoryController.Instance().ReachedWinState();
     }
 
     public void ReachedLoseState() {
+        FindObjectOfType<AudioManager>().Play("game_over_retro"); // lose sound
         GameStatusController.instance.UpdateGameStatusText("You lose!");
         gameStart = false;
         StoryController.Instance().ReachedLoseState();
