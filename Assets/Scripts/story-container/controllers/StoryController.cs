@@ -17,6 +17,8 @@ namespace controllers
         private Vector2 spawnBottomRight = new Vector2(8f, -1f); 
         private float _xBounds = 5f;
         private float _yBounds = 3f;
+        private float fireSpawnTime = 4f;
+        private float timer = 0f;
         
         [Inject]
         private static StoryController _instance;
@@ -35,6 +37,16 @@ namespace controllers
                 _instance = FindObjectOfType<StoryController>();
             }
             return _instance;
+        }
+
+        void FixedUpdate()
+        {
+            timer += Time.fixedDeltaTime;
+            if (timer >= fireSpawnTime)
+            {
+                timer = 0f;
+                SpawnFire();
+            }
         }
 
         public void SymbolWasMatched()
