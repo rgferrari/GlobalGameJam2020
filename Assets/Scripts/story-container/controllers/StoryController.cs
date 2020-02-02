@@ -7,7 +7,10 @@ namespace controllers
 {
     public class StoryController : MonoBehaviour
     {
-        private GameObject _chickenPrefab;
+        private GameObject _motherCluckerPrefab;
+        private GameObject _lankyPrefab;
+        private GameObject _cluckingtonPrefab;
+        private GameObject _flambeauPrefab;
         private GameObject _firePrefab;
         private GameObject _backgroundPrefab;
         private List<Transform> _fires;
@@ -17,13 +20,24 @@ namespace controllers
         private Vector2 spawnBottomRight = new Vector2(8f, -1f); 
         private float _xBounds = 5f;
         private float _yBounds = 3f;
+        private float fireSpawnTime = 4f;
+        private float timer = 0f;
         
         [Inject]
         private static StoryController _instance;
 
-        public void Init(GameObject chickenPrefab, GameObject firePrefab, GameObject backgroundPrefab)
+        public void Init(
+            GameObject motherCluckerPrefab, 
+            GameObject lankyPrefab,
+            GameObject cluckingtonPrefab,
+            GameObject flambeauPrefab,
+            GameObject firePrefab, 
+            GameObject backgroundPrefab)
         {
-            _chickenPrefab = chickenPrefab;
+            _motherCluckerPrefab = motherCluckerPrefab;
+            _lankyPrefab = lankyPrefab;
+            _cluckingtonPrefab = cluckingtonPrefab;
+            _flambeauPrefab = flambeauPrefab;
             _firePrefab = firePrefab;
             _backgroundPrefab = backgroundPrefab;
         }
@@ -35,6 +49,16 @@ namespace controllers
                 _instance = FindObjectOfType<StoryController>();
             }
             return _instance;
+        }
+
+        void FixedUpdate()
+        {
+            timer += Time.fixedDeltaTime;
+            if (timer >= fireSpawnTime)
+            {
+                timer = 0f;
+                SpawnFire();
+            }
         }
 
         public void SymbolWasMatched()
@@ -57,7 +81,10 @@ namespace controllers
             _chickens = new List<MobController>();
             SpawnBackground();
             SpawnFire();
-            SpawnChicken();
+            SpawnChicken(_motherCluckerPrefab);
+            SpawnChicken(_lankyPrefab);
+            SpawnChicken(_cluckingtonPrefab);
+            SpawnChicken(_flambeauPrefab);
         }
 
         public void ReachedWinState()
@@ -75,10 +102,10 @@ namespace controllers
             _background = Instantiate(_backgroundPrefab).GetComponent<BackgroundController>();
         }
 
-        void SpawnChicken()
+        void SpawnChicken(GameObject prefab)
         {
             // Debug.Log("Spawned a chicken");
-            var newChicken = Instantiate(_chickenPrefab, new Vector3(-4, 0, 0), Quaternion.identity);
+            var newChicken = Instantiate(prefab, RandomSpawnPoint(), Quaternion.identity);
             var chickenController = newChicken.GetComponent<MobController>();
             _chickens.Add(chickenController);
         }

@@ -1939,6 +1939,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 183122502776265416, guid: 3eae40e6f34c04834bfdd497c5320c91,
+        type: 3}
+      propertyPath: motherCluckerPrefab
+      value: 
+      objectReference: {fileID: 7047128471776554811, guid: 253dcd01355434519b3003420149c5e1,
+        type: 3}
+    - target: {fileID: 183122502776265416, guid: 3eae40e6f34c04834bfdd497c5320c91,
+        type: 3}
+      propertyPath: lankyPrefab
+      value: 
+      objectReference: {fileID: 8274969918493368934, guid: 10392092a73e849449007f0fabdb799a,
+        type: 3}
+    - target: {fileID: 183122502776265416, guid: 3eae40e6f34c04834bfdd497c5320c91,
+        type: 3}
+      propertyPath: cluckingtonPrefab
+      value: 
+      objectReference: {fileID: 6495813976239200482, guid: a0f6d4d3b66b24c87b33414309e93b5a,
+        type: 3}
+    - target: {fileID: 183122502776265416, guid: 3eae40e6f34c04834bfdd497c5320c91,
+        type: 3}
+      propertyPath: flambeauPrefab
+      value: 
+      objectReference: {fileID: 4672207871801163677, guid: 5746a7acecdfa455f91de1424f3c8570,
+        type: 3}
     - target: {fileID: 183122502776265417, guid: 3eae40e6f34c04834bfdd497c5320c91,
         type: 3}
       propertyPath: m_Name
