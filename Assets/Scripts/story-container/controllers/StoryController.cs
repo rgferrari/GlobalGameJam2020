@@ -93,7 +93,16 @@ namespace controllers
         public void ReachedWinState()
         {
             Debug.Log("Reached win state");
+            DespawnAllFire();
             isGameRunning = false;
+        }
+
+        private void DespawnAllFire()
+        {
+            foreach (var fire in _fires)
+            {
+                Destroy(fire.gameObject, 0.1f);
+            }
         }
 
         public void ReachedLoseState()
