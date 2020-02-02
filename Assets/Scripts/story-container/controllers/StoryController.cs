@@ -22,6 +22,8 @@ namespace controllers
         private float _yBounds = 3f;
         private float fireSpawnTime = 4f;
         private float timer = 0f;
+
+        private bool isGameRunning;
         
         [Inject]
         private static StoryController _instance;
@@ -34,6 +36,7 @@ namespace controllers
             GameObject firePrefab, 
             GameObject backgroundPrefab)
         {
+            isGameRunning = false;
             _motherCluckerPrefab = motherCluckerPrefab;
             _lankyPrefab = lankyPrefab;
             _cluckingtonPrefab = cluckingtonPrefab;
@@ -57,7 +60,7 @@ namespace controllers
             if (timer >= fireSpawnTime)
             {
                 timer = 0f;
-                SpawnFire();
+                if (isGameRunning) SpawnFire();
             }
         }
 
@@ -90,11 +93,23 @@ namespace controllers
         public void ReachedWinState()
         {
             Debug.Log("Reached win state");
+            DespawnAllFire();
+            isGameRunning = false;
+        }
+
+        private void DespawnAllFire()
+        {
+            foreach (var fire in _fires)
+            {
+                Destroy(fire.gameObject, 0.1f);
+            }
         }
 
         public void ReachedLoseState()
         {
             Debug.Log("Reached lose state");
+            isGameRunning = false;
+
         }
 
         void SpawnBackground()
