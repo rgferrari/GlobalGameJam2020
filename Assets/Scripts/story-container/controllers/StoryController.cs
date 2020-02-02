@@ -49,11 +49,11 @@ namespace controllers
         // Update is called once per frame
         void Update()
         {
-            // PH
-            if (Input.GetKeyDown(KeyCode.Q)) SymbolWasMatched();
-            if(Input.GetKeyDown(KeyCode.P)) SymbolWasMisMatched();
-            if(Input.GetKeyDown(KeyCode.T)) ReachedWinState();
-            if(Input.GetKeyDown(KeyCode.Y)) ReachedLoseState();
+            // // PH
+            // if (Input.GetKeyDown(KeyCode.Q)) SymbolWasMatched();
+            // if(Input.GetKeyDown(KeyCode.P)) SymbolWasMisMatched();
+            // if(Input.GetKeyDown(KeyCode.T)) ReachedWinState();
+            // if(Input.GetKeyDown(KeyCode.Y)) ReachedLoseState();
         }
 
         public void SymbolWasMatched()
