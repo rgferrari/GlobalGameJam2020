@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1589154617503860258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589154617503860271}
+  - component: {fileID: 1589154617503860266}
+  - component: {fileID: 1589154617503860270}
+  - component: {fileID: 1589154617503860256}
+  - component: {fileID: 1589154617503860259}
+  - component: {fileID: 1589154617503860269}
+  - component: {fileID: 1589154617503860268}
+  m_Layer: 0
+  m_Name: GameControllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589154617503860271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589154617503860258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1589154617503860266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589154617503860258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c6a9da3bade434fb00b1aca32ff119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyPanel: {fileID: 0}
+  mainGamePanel: {fileID: 0}
+  penaltyAmount: 3
+  gameStart: 0
+--- !u!114 &1589154617503860270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589154617503860258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101239a95592c4ed9bc912951db2dec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerKeyCode: 00000000000000000000000000000000
+  playerKeyCodeStringBased:
+  - 
+  - 
+  - 
+  - 
+--- !u!114 &1589154617503860256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589154617503860258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ddd08ba40f7463ba376078af4c2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownText: {fileID: 0}
+  remainingSlotsText: {fileID: 0}
+  gameStatusText: {fileID: 0}
+  countdownTextPrefix: 
+  remainingTextPrefix: '<size=26>Remaining Slots</size>
+
+'
+  timer: 30
+  remainingSlots: 30
+--- !u!114 &1589154617503860259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589154617503860258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aaf36700868f44ad8b06936a7e31ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageHolder1: {fileID: 0}
+  imageHolder2: {fileID: 0}
+  currentPlayer: 0
+  icons: []
+--- !u!114 &1589154617503860269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589154617503860258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320b8625e823a47f3916e8fcb0d49621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStatusPanel: {fileID: 0}
+  penaltyTextPrefab: {fileID: 2149093567948270839, guid: 4cff055b1da944b85a2cfdbab9fb4a93,
+    type: 3}
+--- !u!114 &1589154617503860268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589154617503860258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3505173c67db3444a88dde9b9e515902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 0}

@@ -50,7 +50,6 @@ namespace controllers
             var thatIsToMyRight = transform.position.x < that.position.x;
             if (facingRight && !thatIsToMyRight || !facingRight && thatIsToMyRight)
             {
-                Debug.Log("Flip");
                 var localScale = transform.localScale;
                 localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
                 transform.localScale = localScale;
@@ -102,7 +101,6 @@ namespace controllers
         void Wander()
         {
             _wandering = true;
-            Debug.Log("Wandering");
             StartCoroutine(DoWander());
         }
 

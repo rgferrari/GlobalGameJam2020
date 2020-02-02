@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using controllers;
 using UnityEngine;
 using DG.Tweening;
 
@@ -39,7 +40,7 @@ public class LogicController : MonoBehaviour{
         if (GameStatusController.instance.remainingSlots <= 0)
             ReachedWinState();
 
-        StoryController.instance.SymbolWasMatched();
+        StoryController.Instance().SymbolWasMatched();
     }
 
     public void SymbolWasMisMatched() {
@@ -48,18 +49,18 @@ public class LogicController : MonoBehaviour{
         PenaltyController.instance.TriggerPenalty(penaltyAmount, 0.3f);
         CanvasShaker.instance.Shake(100f, 0.25f);
 
-        StoryController.instance.SymbolWasMisMatched();
+        StoryController.Instance().SymbolWasMisMatched();
     }
 
     public void ReachedWinState() {
         GameStatusController.instance.UpdateGameStatusText("You win!");
         GameStatusController.instance.StopCountdown();
-        StoryController.instance.ReachedWinState();
+        StoryController.Instance().ReachedWinState();
     }
 
     public void ReachedLoseState() {
         GameStatusController.instance.UpdateGameStatusText("You lose!");
         gameStart = false;
-        StoryController.instance.ReachedLoseState();
+        StoryController.Instance().ReachedLoseState();
     }
 }
