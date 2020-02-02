@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using controllers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,7 @@ public class GameStatusController : MonoBehaviour{
 
     public void StartCountdown(){
         countdown = true;
+        StoryController.Instance().StartStory();
     }
 
     public void StopCountdown(){
