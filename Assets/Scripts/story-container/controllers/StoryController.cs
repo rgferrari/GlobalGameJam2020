@@ -81,7 +81,10 @@ namespace controllers
             _chickens = new List<MobController>();
             SpawnBackground();
             SpawnFire();
-            SpawnChicken();
+            SpawnChicken(_motherCluckerPrefab);
+            SpawnChicken(_lankyPrefab);
+            SpawnChicken(_cluckingtonPrefab);
+            SpawnChicken(_flambeauPrefab);
         }
 
         public void ReachedWinState()
@@ -99,10 +102,10 @@ namespace controllers
             _background = Instantiate(_backgroundPrefab).GetComponent<BackgroundController>();
         }
 
-        void SpawnChicken()
+        void SpawnChicken(GameObject prefab)
         {
             // Debug.Log("Spawned a chicken");
-            var newChicken = Instantiate(_motherCluckerPrefab, new Vector3(-4, 0, 0), Quaternion.identity);
+            var newChicken = Instantiate(prefab, RandomSpawnPoint(), Quaternion.identity);
             var chickenController = newChicken.GetComponent<MobController>();
             _chickens.Add(chickenController);
         }
