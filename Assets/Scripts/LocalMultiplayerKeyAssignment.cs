@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+// TODO - clean up codes, make controller mapping available
+
 public class LocalMultiplayerKeyAssignment : MonoBehaviour{
 
     public Text instructionText, infoText;
@@ -17,6 +19,7 @@ public class LocalMultiplayerKeyAssignment : MonoBehaviour{
 
     // KEY ASSIGNMENTS
     private void OnGUI() {
+        //return;
 
         if (assignmentFinish)
             return;
@@ -90,6 +93,12 @@ public class LocalMultiplayerKeyAssignment : MonoBehaviour{
 
     // Assigning player keys
     private void Update() {
+
+        System.Array values = System.Enum.GetValues(typeof(KeyCode));
+        foreach (KeyCode code in values) {
+            if (Input.GetKeyDown(code)) { print(System.Enum.GetName(typeof(KeyCode), code)); }
+        }
+
 
         switch(currentPlayer){
             case 1:

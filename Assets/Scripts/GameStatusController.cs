@@ -7,7 +7,7 @@ public class GameStatusController : MonoBehaviour{
 
     public static GameStatusController instance;
 
-    public Text countdownText, remainingSlotsText;
+    public Text countdownText, remainingSlotsText, gameStatusText;
     public string countdownTextPrefix = "Countdown: ";
     public string remainingTextPrefix = "Remaining Slots: ";
     bool countdown = false;
@@ -19,6 +19,7 @@ public class GameStatusController : MonoBehaviour{
     void Awake(){
         instance = instance ? instance : this;
         DontDestroyOnLoad(instance);
+        gameStatusText.text = "";
     }
 
     public void StartCountdown(){
@@ -29,8 +30,19 @@ public class GameStatusController : MonoBehaviour{
         if (!countdown)
             return;
 
+        // Active timer
         timer -= Time.deltaTime;
         countdownText.text = countdownTextPrefix + (int)timer;
         remainingSlotsText.text = remainingTextPrefix + remainingSlots;
+
+        // Timer reached - game over
+        if(timer < 0 && countdown){
+            countdown = false;
+            LogicController.instance.ReachedLoseState();
+        }
+    }
+
+    public void UpdateGameStatusText(string content) {
+        gameStatusText.text = content;
     }
 }

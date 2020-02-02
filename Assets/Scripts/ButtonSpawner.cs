@@ -27,14 +27,30 @@ public class ButtonSpawner : MonoBehaviour{
 
     public void ButtonPressed() {
 
-        currentPlayer = Random.Range(0, icons.Length);
-        if (imageHolderFlag == 1) {
-            imageHolder1.sprite = icons[currentPlayer];
-        } else if (imageHolderFlag == 2) {
-            imageHolder2.sprite = icons[currentPlayer];
+        if (imageHolderFlag == 2) {
+            imageHolder1.sprite = icons[Random.Range(0, icons.Length)];
+        } else if (imageHolderFlag == 1) {
+            imageHolder2.sprite = icons[Random.Range(0, icons.Length)];
         }
 
         ChangeImage();
+    }
+
+    private void Update() {
+        if(imageHolderFlag == 1){
+            currentPlayer = GetSpriteIndex(imageHolder1.sprite);
+        }else{
+            currentPlayer = GetSpriteIndex(imageHolder2.sprite);
+        }
+    }
+
+    int GetSpriteIndex(Sprite sprite){
+        for (int i = 0; i < icons.Length; i++){
+            if(sprite == icons[i]){
+                return i;
+            }
+        }
+        return -1;
     }
 
     public void ChangeImage(){

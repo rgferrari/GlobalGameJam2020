@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO - clean up codes, make controller mapping available
+
 public class UserInputController : MonoBehaviour{
 
     public static UserInputController instance;
 
     public KeyCode[] playerKeyCode = new KeyCode[4];
+    public string[] playerKeyCodeStringBased = new string[4];
 
     private void Awake() {
         instance = instance ? instance : this;

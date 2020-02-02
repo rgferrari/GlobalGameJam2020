@@ -7,6 +7,8 @@ public class LogicController : MonoBehaviour{
 
     public static LogicController instance;
     public CanvasGroup mainGamePanel;
+    public int penaltyAmount = 3;
+    [HideInInspector]
     public bool gameStart = false;
 
     /*
@@ -45,9 +47,9 @@ public class LogicController : MonoBehaviour{
         //Debug.Log("Symbol was mismatched");
 
         // Actions
-        GameStatusController.instance.remainingSlots += 5;
+        GameStatusController.instance.remainingSlots += penaltyAmount;
         ButtonSpawner.instance.ButtonPressed();
-        PenaltyController.instance.TriggerPenalty(0.3f);
+        PenaltyController.instance.TriggerPenalty(penaltyAmount, 0.3f);
         CanvasShaker.instance.Shake(100f, 0.25f);
 
         StoryController.instance.SymbolWasMisMatched();
@@ -57,6 +59,7 @@ public class LogicController : MonoBehaviour{
         //Debug.Log("Reached win state");
 
         // Actions
+        GameStatusController.instance.UpdateGameStatusText("Win!");
         StoryController.instance.ReachedWinState();
     }
 
@@ -64,6 +67,7 @@ public class LogicController : MonoBehaviour{
         //Debug.Log("Reached lose state");
 
         // Actions
+        GameStatusController.instance.UpdateGameStatusText("Lose!");
         StoryController.instance.ReachedLoseState();
     }
 }

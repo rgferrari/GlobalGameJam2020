@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class PenaltyController : MonoBehaviour{
 
@@ -15,14 +16,18 @@ public class PenaltyController : MonoBehaviour{
         DontDestroyOnLoad(this);
     }
 
-    public void TriggerPenalty(float duration){
-        StartCoroutine(PenaltyCoroutine(duration));
+    public void TriggerPenalty(int amount, float duration){
+        StartCoroutine(PenaltyCoroutine(amount, duration));
     }
 
-    IEnumerator PenaltyCoroutine(float duration){
+    IEnumerator PenaltyCoroutine(int amount, float duration){
+
+        // Penalty Animation
 
         GameObject penaltyText = Instantiate(penaltyTextPrefab, gameStatusPanel);
         CanvasGroup penaltyTextTransparency = penaltyText.GetComponent<CanvasGroup>();
+        penaltyText.GetComponent<Text>().text = "+" + amount;
+
         penaltyTextTransparency.alpha = 0f;
 
 
